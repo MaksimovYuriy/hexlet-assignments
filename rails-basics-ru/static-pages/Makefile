@@ -1,13 +1,13 @@
 setup:
-	bin/setup
+	bundle exec setup
 
 start:
-	bin/dev
+	bundle exec dev
 
 console:
-	bin/rails console
+	bundle exec rails console
 
 test:
-	NODE_ENV=test bin/rails test
+	NODE_ENV=test bundle exec rails test
 
 .PHONY: test
