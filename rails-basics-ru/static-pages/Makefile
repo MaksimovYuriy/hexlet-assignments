@@ -1,19 +1,13 @@
-install:
-	bundle install
-
 setup:
-	bundle exec setup
+	bin/setup
 
 start:
-	bundle exec dev
+	bin/dev
 
 console:
-	bundle exec rails console
-
-migrate:
-	bundle exec rails db:migrate
+	bin/rails console
 
 test:
-	NODE_ENV=test bundle exec rails test
+	NODE_ENV=test bin/rails test
 
 .PHONY: test

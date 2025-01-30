@@ -8,6 +8,7 @@ gem 'jbuilder'
 gem 'puma'
 gem 'rails', '~> 7.2'
 gem 'sqlite3', '~> 1.4'
+gem 'fiddle'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
