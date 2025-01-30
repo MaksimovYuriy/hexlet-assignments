@@ -1,3 +1,6 @@
+install:
+	bundle install
+
 setup:
 	bundle exec setup
 
