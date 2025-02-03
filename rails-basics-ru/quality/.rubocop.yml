@@ -17,4 +17,7 @@ Gemspec/RequiredRubyVersion:
 
 Metrics/MethodLength:
   Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false
 # END
