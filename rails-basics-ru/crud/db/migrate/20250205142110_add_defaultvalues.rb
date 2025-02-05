@@ -1,4 +1,4 @@
-class AddDefaultValues < ActiveRecord::Migration[7.2]
+class AddDefaultvalues < ActiveRecord::Migration[7.2]
   def up
     change_column_default :tasks, :status, from: nil, to: 'new'
     change_column_default :tasks, :completed, from: nil, to: false
