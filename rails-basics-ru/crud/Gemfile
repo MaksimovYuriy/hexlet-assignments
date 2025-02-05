@@ -25,7 +25,6 @@ gem 'cssbundling-rails'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'jbuilder'
 
-gem 'webpacker'
 gem 'faker'
 
 group :development, :test do
@@ -47,3 +46,5 @@ end
 
 gem 'rexml', '~> 3.2', '>= 3.2.4'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+gem "webpacker", "~> 5.4"
