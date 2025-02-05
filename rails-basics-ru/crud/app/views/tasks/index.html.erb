@@ -1,5 +1,5 @@
 <%= @tasks.each do |task| %>
-    <p> <%= link_to task.name, task_path(task), method: :delete %> </p>
+    <p> <%= link_to task.name, task_path(task) %> </p>
     <p> <%= "Завершена? #{task.completed.to_s}" %> </p>
     <hr>
 <% end %>
