@@ -1,0 +1,23 @@
+<h1> New Task </h1>
+
+<%= form_with model: @task do |form| %>
+    <div>
+        <%= form.label :name %>
+        <br>
+        <%= form.text_field :name %>
+    </div>
+    <div>
+        <%= form.label :description %>
+        <br>
+        <%= form.text_field :description %>
+    </div>
+    <div>
+        <%= form.label :creator %>
+        <br>
+        <%= form.text_field :creator %>
+    </div>
+    <div>
+        <br>
+        <%= form.submit %>
+    </div>
+<% end %>
