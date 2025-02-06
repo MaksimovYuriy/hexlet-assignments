@@ -23,12 +23,12 @@ class HexletCheckTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get index' do
-    get 'tasks'
+    get tasks_url
     assert_response :success
   end
 
   test 'should get new' do
-    get 'tasks/new'
+    get new_task_url
     assert_response :success
   end
 
