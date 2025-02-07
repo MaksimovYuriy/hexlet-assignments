@@ -1,0 +1,6 @@
+= @tasks.each do |task|
+  p
+    = link_to task.name, task_path(task)
+  p
+    = "Завершена? #{task.completed.to_s}"
+  hr

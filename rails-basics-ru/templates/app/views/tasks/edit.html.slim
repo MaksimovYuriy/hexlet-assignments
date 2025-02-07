@@ -1,0 +1,27 @@
+h1
+  |  Edit Task 
+= form_with model: @task do |form|
+  div
+    = form.label :name
+  br
+  = form.text_field :name
+  div
+    = form.label :description
+  br
+  = form.text_field :description
+  div
+    = form.label :creator
+  br
+  = form.text_field :creator
+  div
+    = form.label :status
+  br
+  = form.text_field :status
+  div
+    = form.label :completed
+  br
+  = form.text_field :completed
+  div
+
+  br
+  = form.submit
