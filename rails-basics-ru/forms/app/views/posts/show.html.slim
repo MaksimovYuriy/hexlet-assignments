@@ -1,0 +1,12 @@
+h1
+  |  Post 
+p
+  = @post.title
+p
+  = @post.body
+p
+  = @post.summary
+p
+  = link_to 'Edit Post', edit_post_path
+  br
+  = link_to "Delete Post", post_path(@post), data: { turbo_confirm: 'Are you sure?', turbo_method: :delete }

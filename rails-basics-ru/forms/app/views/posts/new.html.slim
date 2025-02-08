@@ -1,0 +1,9 @@
+h1
+  |  New Post 
+div
+    = simple_form_for @post do |f|
+        = f.input :title
+        = f.input :body
+        = f.input :summary
+        = f.input :published, input_html: { checked: false }
+        = f.button :submit
