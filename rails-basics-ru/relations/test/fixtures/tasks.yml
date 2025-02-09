@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  user: user_1
+  status: status_done
+
+two:
+  name: MyString
+  description: MyText
+  user: user_2
+  status: status_new

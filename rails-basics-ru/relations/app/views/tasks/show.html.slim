@@ -1,0 +1,17 @@
+= content_for :title do
+  = @task.name
+
+div
+    = @task.description
+    hr
+    = @task.user.name
+    hr
+    = @task.status.name
+    hr
+    = @task.created_at
+
+hr
+
+.d-flex
+  = link_to 'Edit', edit_task_path(@task), class: 'btn btn-outline-primary me-2'
+  = link_to 'Back', :back, class: 'btn btn-outline-primary'
