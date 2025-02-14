@@ -1,0 +1,18 @@
+ru:
+  show: Посмотреть
+  edit: Изменить
+  destroy: Удалить
+  destroy_confirmation: Вы уверены?
+  back: Назад
+  hexlet_footer: Хекслет
+  nav:
+    home: Домой
+    posts: Посты
+  titles:
+    home: Домашняя страница
+    posts_page: Посты
+    posts_table: Список постов
+  layouts:
+    shared:
+      nav:
+        hexlet_logo: Хекслет
