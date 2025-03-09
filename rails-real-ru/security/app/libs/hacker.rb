@@ -3,45 +3,32 @@
 require 'open-uri'
 require 'net/http'
 
+
 class Hacker
   class << self
     def hack(email, password)
-      sign_up_url = 'https://rails-collective-blog-ru.hexlet.app/users/sign_up/'
-      sign_up_uri = URI.parse(sign_up_url)
+      uri = URI('https://rails-collective-blog-ru.hexlet.app')
+      Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https',
+      verify_mode: OpenSSL::SSL::VERIFY_NONE) do |http|
+        get_req = Net::HTTP::Get.new(uri.path + '/users/sign_up')
+        response = http.request(get_req)
 
-      http = Net::HTTP.new(sign_up_uri.host, sign_up_uri.port)
-      http.use_ssl = true if sign_up_uri.scheme == 'https'
+        doc = Nokogiri::HTML(response.body)
+        cookie = response.response['set-cookie'].split('; ')[0]
+        csrf_token = doc.at('input[name="authenticity_token"]')['value']
 
-      request = Net::HTTP::Get.new(sign_up_uri.request_uri)
-      response = http.request(request)
+        params = {
+          'authenticity_token': csrf_token,
+          'user[email]': email,
+          'user[password]': password,
+          'user[password_confirmation]': password
+        }
 
-      html_parsed = Nokogiri::HTML(response.body)
-      csrf_token = html_parsed.at_css('head meta[name=csrf-token]')['value']
-
-      cookies = response.get_fields('set-cookie').join('; ')
-
-      puts "CSRF Token: #{csrf_token}"
-      puts "Cookies: #{cookies}"
-
-      post_url = 'https://rails-collective-blog-ru.hexlet.app/users'
-      post_uri = URI.parse(post_url)
-      params = {
-        authenticity_token: csrf_token,
-        user_email: email,
-        user_password: password,
-        user_password_confirmation: password
-      }
-
-      http = Net::HTTP.new(post_uri.host, post_uri.port)
-      http.use_ssl = true if post_uri.scheme == 'https'
-
-      request = Net::HTTP::Post.new(post_uri.request_uri)
-      request.set_form_data(params)
-
-      request['cookie'] = cookies
-
-      response = http.request(request)
-      puts response
+        post_req = Net::HTTP::Post.new(uri.path + '/users')
+        post_req.body = URI.encode_www_form(params)
+        post_req['Cookie'] = cookie
+        response = http.request(post_req)
+      end
     end
   end
 end
