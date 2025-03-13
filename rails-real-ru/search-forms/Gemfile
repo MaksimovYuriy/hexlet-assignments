@@ -43,7 +43,6 @@ gem 'slim-rails'
 gem 'aasm'
 # BEGIN
 gem 'ransack'
-gem 'simple_form_ransack'
 # END
 
 group :development, :test do
