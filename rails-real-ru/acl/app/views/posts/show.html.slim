@@ -1,0 +1,19 @@
+= content_for :title do
+  = @post.title
+p
+  strong.me-2 = t('.author')
+  = @post.author.name
+p
+  strong.me-2 = t('.body')
+  = @post.body
+
+hr
+
+.d-flex
+  / BEGIN
+  - if policy(@post).edit?
+    = link_to t('edit'), edit_post_path(@post), class: 'btn btn-outline-primary'
+  - if policy(@post).destroy?
+    = link_to t('destroy'), post_path(@post), data: { 'turbo-method' => :delete }, class: 'btn btn-outline-primary'
+  / END
+  = link_to t('back'), :back, class: 'btn btn-outline-primary'
